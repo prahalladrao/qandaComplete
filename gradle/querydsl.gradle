@@ -1,0 +1,27 @@
+repositories {
+    mavenCentral()
+}
+
+//apply plugin: 'com.ewerk.gradle.plugins.querydsl'
+apply plugin: 'idea'
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+//querydsl {
+//    querydslDefault = true
+////    jpa = true
+//}
+def querydslVersion='4.1.4'
+idea {
+    module {
+        sourceDirs += file('src/querydsl/')
+        generatedSourceDirs += file('src/querydsl/')
+    }
+}
+
+dependencies {
+    compile "com.querydsl:querydsl-jpa:$querydslVersion"
+}

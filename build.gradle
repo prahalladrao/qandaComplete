@@ -1,0 +1,104 @@
+//buildscript {
+//	repositories {
+//		maven {
+//			url "https://plugins.gradle.org/m2/"
+//		}
+//	}
+//	dependencies {
+//		classpath('net.ltgt.gradle:gradle-apt-plugin:0.18')
+//	}
+//}
+//
+
+plugins {
+	id 'org.springframework.boot' version '2.1.9.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'java'
+	//id "com.ewerk.gradle.plugins.querydsl" version "1.0.10"
+
+}
+//apply plugin: 'net.ltgt.apt'
+//apply plugin: 'net.ltgt.apt-idea'
+
+group = 'com.stackoverflow'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+    //jcenter()
+}
+
+//
+def queryDslVersion = '4.1.3'
+
+
+//
+//dependencies {
+//	compile("com.querydsl:querydsl-core:${queryDslVersion}")
+//	compile("com.querydsl:querydsl-jpa:${queryDslVersion}")
+//}
+//
+//dependencies {
+//	compile "com.querydsl:querydsl-jpa:${queryDslVersion}"
+//	annotationProcessor (
+//			"com.querydsl:querydsl-apt:${queryDslVersion}:jpa",
+//			"org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final",
+//			"javax.annotation:javax.annotation-api:1.3.2",
+//	)
+//}
+
+
+//apply from:'gradle/querydsl.gradle'
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.bitbucket.b_c:jose4j:0.6.5'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.1.6.RELEASE'
+
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt
+	compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.6.0'
+//	implementation "javax.xml.bind:jaxb-api:2.2.11"
+//	implementation "com.sun.xml.bind:jaxb-core:2.2.11"
+//	implementation "com.sun.xml.bind:jaxb-impl:2.2.11"
+//	implementation "javax.activation:activation:1.1.1"
+	compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '2.1.6.RELEASE'
+
+	// https://mvnrepository.com/artifact/com.querydsl/querydsl-mongodb
+			compile 'com.querydsl:querydsl-mongodb'
+// https://mvnrepository.com/artifact/com.mysema.querydsl/querydsl-apt
+			compile 'com.mysema.querydsl:querydsl-apt:3.6.3'
+			//compile group: 'org.apache.maven', name: 'maven-plugin-api', version: '3.3.9'
+			// https://mvnrepository.com/artifact/org.springframework.data/spring-data-mongodb
+
+//			compile "com.mysema.querydsl:querydsl-jpa:3.6.3"
+//			compile "com.mysema.querydsl:querydsl-apt:3.6.3:jpa"
+	// https://mvnrepository.com/artifact/com.querydsl/querydsl-mongodb
+	// https://mvnrepository.com/artifact/com.querydsl/querydsl-mongodb
+//	compile group: 'com.querydsl', name: 'querydsl-mongodb'
+//	// https://mvnrepository.com/artifact/com.querydsl/querydsl-apt
+//	compile group: 'com.querydsl', name: 'querydsl-apt'
+
+
+	// https://mvnrepository.com/artifact/com.mysema.maven/apt-maven-plugin
+	// https://mvnrepository.com/artifact/gradle.plugin.net.ltgt.gradle/gradle-apt-plugin
+    // compile group: 'gradle.plugin.net.ltgt.gradle', name: 'gradle-apt-plugin', version: '0.1'
+
+}
+dependencies {
+	//compile "com.querydsl:querydsl-jpa:${queryDslVersion}"
+	compileOnly 'org.projectlombok:lombok:1.16.18'
+	annotationProcessor(
+			//"org.apache.maven:maven-plugin-api:3.3.9:com.mysema.query.apt.morphia.MorphiaAnnotationProcessor"
+			//"org.springframework.boot:spring-boot-starter-data-mongodb:org.springframework.data.mongodb.repository.support.MongoAnnotationProcessor"
+
+			"com.mysema.querydsl:querydsl-apt:3.6.3",
+//			"org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final",
+//			"javax.annotation:javax.annotation-api:1.3.2",
+//			"org.projectlombok:lombok"
+	)
+}
